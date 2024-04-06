@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% load myfilters %}
+
+{% block head %}
+	<title>Форма регистрации</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+  	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock head %}
+  
+{% block body %}
+	<div class="wrapper">
+		<form action="" method="post">
+			{% csrf_token %}
+			<h1 class="form_title">Добро пожаловать</h1>
+			<div class="form_group">
+				Имя пользователя{{form.username}}
+			</div>
+			<div class="form_group">
+				<label for="email">Электронная почта</label>
+				<input class="form_input" type="email" name="email">
+			</div>
+			<div class="form_group">
+				Пароль{{form.password1}}</i>
+			</div>
+			<div class="form_group">
+				Повторите пароль{{form.password2}}
+			</div>
+			<div class="remember">
+				<label for=""><input type="checkbox">Запомни меня</label>
+			</div>
+			<button type="submit" class="btn">Создать аккаунт</button>
+			<div class="logon">
+				<p>Уже есть аккаунт? <a href="/login">Войдите</a></p>
+			</div>
+		</form>
+	</div>
+{% endblock body %}
